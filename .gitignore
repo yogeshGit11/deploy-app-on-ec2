@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Virtualenv
+venv/
+env/
+ENV/
+.venv/
+.env/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django specific
+*.log
+*.pot
+*.pyc
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+local_settings.py
+
+# Environment variables
+.env
+*.env
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+
+# Mac OS
+.DS_Store
+
+# Migrations (optional - you may want to keep these in version control)
+**/migrations/*.pyc
+**/migrations/__pycache__/
+# Uncomment the next line only if you want to ignore all migration files
+# **/migrations/*.py
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+
+# pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+
+# Node (if you use Node in your frontend)
+node_modules/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
