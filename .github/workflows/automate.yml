@@ -36,7 +36,19 @@ jobs:
           script: |
             cd /home/project/deploy-app-on-ec2
             git pull origin master
+
+            echo "🛑 Stopping existing container (if any)..."
             docker stop djapp || true
             docker rm djapp || true
+
+            echo "📥 Pulling latest Docker image..."
             docker pull ${{ secrets.DOCKER_USERNAME }}/django_repo:latest
-            docker run -d --name djapp -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/django_repo:latest
+
+            echo "🚀 Running new container..."
+            docker run -d \
+              --name djapp \
+              -p 8000:8000 \
+              ${{ secrets.DOCKER_USERNAME }}/django_repo:latest
+
+            echo "🔧 Running migrations inside the container..."
+            docker exec djapp python manage.py migrate --noinput
